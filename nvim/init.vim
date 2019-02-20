@@ -16,10 +16,11 @@ Plug 'justinmk/vim-sneak' " Get around easier!
 Plug 'moll/vim-bbye' " Allows buffer to be closed without closing split
 Plug 'scrooloose/nerdtree' " Navigation plugin
 Plug 'kien/ctrlp.vim' " CtrlP - for file navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim' " Fuzzy file finder
 Plug 'vim-airline/vim-airline' " Nicer status line, shows buffers at top.
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter' " Display git status in margin
 Plug 'tpope/vim-fugitive' " Git plugin
 Plug 'tpope/vim-repeat' " Fixes . for some plugins
 Plug 'tpope/vim-surround' " Surround stuff with things like quotes
@@ -28,7 +29,7 @@ Plug 'sheerun/vim-polyglot' " Various language packs
 Plug 'Notre1/as400.vim' " Syntax highlighting for RPG code
 Plug 'andlrc/rpgle.vim' " Syntax highlighting for RPG code
 Plug 'leafgarland/typescript-vim' " Typescript highlighting
-"Plug 'vim-scripts/taglist.vim' " Ctags list - doesn't seem to work?
+Plug 'w0rp/ale' " Linting
 Plug 'ludovicchabant/vim-gutentags' " Automatic Ctags update
 Plug 'kkoenig/wimproved.vim' " Windows gvim tweaks
 Plug 'luochen1990/rainbow' " Rainbow coloured parentheses
@@ -64,6 +65,7 @@ set incsearch
 set relativenumber
 set wildmenu
 set hidden
+set lazyredraw
 set mouse=a
 
 " Scroll when moving past top/bottom 4 lines
@@ -73,6 +75,11 @@ set scrolloff=4
 " ------------
 set gfn=DejaVu_Sans_Mono_for_Powerline:h10
 set guioptions=gm
+
+if has("gui_running")
+    set lines=36 columns=120
+endif
+
 " A little bit of transparency. For fanciness :-)
 autocmd GUIEnter * silent! WSetAlpha 250
 
@@ -115,9 +122,12 @@ let g:ctrlp_by_filename = 0
 "a tags file, and then recursively searches parents to find one.
 set tags=tags;/
 
-"Don't index 'target' directories for CTags
-"let g:gutentags_exclude = 'target'
 let g:gutentags_define_advanced_commands=1
+
+" Turn off gutentags if we don't have CTags installed
+if !executable('ctags')
+    let g:gutentags_dont_load=1
+endif
 
 "Rainbow parens initially switched off
 let g:rainbow_active = 0

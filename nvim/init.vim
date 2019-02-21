@@ -25,6 +25,7 @@ Plug 'tpope/vim-fugitive' " Git plugin
 Plug 'tpope/vim-repeat' " Fixes . for some plugins
 Plug 'tpope/vim-surround' " Surround stuff with things like quotes
 Plug 'tpope/vim-commentary' " Easy commenting
+Plug 'tpope/vim-unimpaired' " Nice shortcuts for common operations
 Plug 'sheerun/vim-polyglot' " Various language packs
 Plug 'Notre1/as400.vim' " Syntax highlighting for RPG code
 Plug 'andlrc/rpgle.vim' " Syntax highlighting for RPG code

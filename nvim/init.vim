@@ -13,7 +13,7 @@ call plug#begin(vimfilesdir.'/plugged')
 Plug 'nanotech/jellybeans.vim' " Jellybeans colour scheme
 Plug 'morhetz/gruvbox' " gruvbox colour scheme
 Plug 'justinmk/vim-sneak' " Get around easier!
-Plug 'moll/vim-bbye' " Allows buffer to be closed without closing split
+Plug 'qpkorr/vim-bufkill' " Clean buffer closing
 Plug 'scrooloose/nerdtree' " Navigation plugin
 Plug 'kien/ctrlp.vim' " CtrlP - for file navigation
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -164,7 +164,7 @@ map <Leader>n :bn!<cr>
 
 " Plugin shortcuts
 nnoremap <Leader>b :CtrlPBuffer<cr>
-nnoremap <Leader>d :Bdelete<cr>
+nnoremap <Leader>d :BD<cr>
 nnoremap <Leader>E :NERDTree<cr>
 nnoremap <Leader>e :NERDTreeFind<cr>
 nnoremap <Leader>F :WToggleFullscreen<cr>

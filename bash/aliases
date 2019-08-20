@@ -1,0 +1,8 @@
+alias ls='ls --color -F --group-directories-first'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias grep='grep --color=auto'
+
+alias vim=nvim

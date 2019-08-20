@@ -1,0 +1,8 @@
+# Command prompt
+COLOUR_RESET="\e[0m"
+FG="\e[38;5;"
+BG="\e[48;5;"
+GREEN="107m"
+BLUE="68m"
+
+export PS1="\n\[${FG}${GREEN}\][\u@\h] \w\[${FG}${BLUE}\]\$(__git_ps1 ' (%s)') \n$ \[$COLOUR_RESET\]"

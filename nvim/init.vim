@@ -176,3 +176,19 @@ nnoremap <Leader>r :RainbowToggle<cr>
 " Remap z for horizontal shifting for that we move a bit quicker
 nnoremap zl z20l
 nnoremap zh z20h
+
+" Get clipboard working - needs Neovim for windows installing
+if executable('/mnt/c/tools/neovim/Neovim/bin/win32yank.exe')
+    let g:clipboard = {
+          \   'name': 'myClipboard',
+          \   'copy': {
+          \      '+': '/mnt/c/tools/neovim/Neovim/bin/win32yank.exe -i --crlf',
+          \      '*': '/mnt/c/tools/neovim/Neovim/bin/win32yank.exe -i --crlf',
+          \    },
+          \   'paste': {
+          \      '+': '/mnt/c/tools/neovim/Neovim/bin/win32yank.exe -o --lf',
+          \      '*': '/mnt/c/tools/neovim/Neovim/bin/win32yank.exe -o --lf',
+          \   },
+          \   'cache_enabled': 1,
+          \ }
+endif

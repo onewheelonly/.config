@@ -14,5 +14,6 @@
     diff = diff --word-diff
     ds = diff --stat
     dc = diff --cached
+	amend = commit --amend -C HEAD
 [push]
     default = upstream
